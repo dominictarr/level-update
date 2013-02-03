@@ -38,6 +38,8 @@ test veto...
 
 test modify,
 
+TODO test coverage for batches, and dels
+
 */
 rimraf(path, function () {
 
