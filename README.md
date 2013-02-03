@@ -6,7 +6,7 @@ The name of this module may change if I think of something better.
 
 ## Example
 
-`level-update' intercepts database mutations (`put, del, batch`),
+`level-update` intercepts database mutations (`put, del, batch`),
 retrives the current value for that key, and passed the old value,
 and the new value to a user supplied `merge` function.
 
