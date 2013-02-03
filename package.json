@@ -1,16 +1,19 @@
 {
-  "name": "0",
+  "name": "level-update",
   "version": "0.0.1",
-  "homepage": "https://github.com/dominictarr/0",
+  "homepage": "https://github.com/dominictarr/level-update",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dominictarr/0.git"
+    "url": "git://github.com/dominictarr/level-update.git"
   },
   "dependencies": {
-    "lock": "~0.0.2"
+    "lock": "~0.0.2",
+    "shasum": "0.0.2"
   },
   "devDependencies": {
-    "shasum": "0.0.2"
+    "tape": "~0.2.2",
+    "rimraf": "~2.1.2",
+    "levelup": "~0.5.3"
   },
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"
