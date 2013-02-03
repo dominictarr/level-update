@@ -21,10 +21,8 @@ var HashVersion = module.exports = function (db) {
   Update(db, function (value, _value, key) {
     value  = hash(parse(value))
     _value = hash(parse(_value))
-
-    console.log(_value, '->', value)
     if(_value) {
-      if(value._prev !== _value._hash)
+      if(!value || value._prev !== _value._hash)
         throw new Error(JSON.stringify(value)
           + ' does not follow '
           + JSON.stringify(_value)
