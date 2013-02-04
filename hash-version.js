@@ -18,7 +18,7 @@ function parse (v) {
 }
 
 var HashVersion = module.exports = function (db) {
-  Update(db, function (value, _value, key) {
+  Update(db, function (value, _value) {
     value  = hash(parse(value))
     _value = hash(parse(_value))
     if(_value) {
@@ -28,6 +28,9 @@ var HashVersion = module.exports = function (db) {
           + JSON.stringify(_value)
           + ' concurrent update?'
         )
+      else
+        if(value && value._delete === true)
+          return null
     }
   })
 }
