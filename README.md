@@ -43,6 +43,14 @@ check that new value is correct, or throw error.
 
 check that new value comes after old, or merge concurrent updates.
 
+## locks
+
+`level-update` uses [lock](https://github.com/dominictarr/lock) to preserve 
+update scemantics, this is necessay to be able so that merged mutations can
+behave deterministically - `level-update` does a get, and then combines the
+current value with the new value. It is essetial that the value has not 
+changed in between the get and the put!
+
 ## License
 
 MIT
