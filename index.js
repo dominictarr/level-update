@@ -1,4 +1,3 @@
-
 var Lock = require('lock')
 
 module.exports = function (db, opts) {
@@ -26,6 +25,7 @@ module.exports = function (db, opts) {
       return put.call(db, key, value, options, cb) 
 
     db.get(key, function (err, _value) {
+      if(err && err.name != 'NotFoundError') return cb(err)
       var merged
       try {
         merged = merge(value, _value, key)
