@@ -20,8 +20,8 @@ And if it returns something else, then the new value will be saved as normal.
 ``` js
   var Update = require('level-update')
 
-  Update(db, function merge (oldValue, newValue) {
-    
+  Update(db, function merge (newValue, oldValue, key) {
+    return someSortOfMerge(newValue, oldValue)
   })
 
   db.put('key', 'VALUE', function (err) {
