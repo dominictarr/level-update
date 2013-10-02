@@ -1,5 +1,5 @@
 
-var levelup = require('levelup')
+var levelup = require('level')
 var tape    = require('tape')
 var rimraf  = require('rimraf')
 
@@ -48,7 +48,7 @@ rimraf(path, function () {
 
       db.put('key', JSON.stringify(r), function (err, _r) {
         console.log('1')
-        t.equal(err, null)
+        t.ok(err == null)
         db.put('key', JSON.stringify(r_wrong), function (err) {
         console.log(2)
           t.notEqual(err, null)

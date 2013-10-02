@@ -22,7 +22,7 @@ I don't actually care which one wins, as long as only one wins.
 */
 
 
-var levelup = require('levelup')
+var levelup = require('level')
 var tape    = require('tape')
 var rimraf  = require('rimraf')
 

@@ -51,6 +51,10 @@ behave deterministically - `level-update` does a get, and then combines the
 current value with the new value. It is essetial that the value has not 
 changed in between the get and the put!
 
+## NOTE
+
+`level-update` doesn't support the [chained interface](https://github.com/rvagg/node-levelup#dbbatch-chained-form) for db.batch(), but only the [array interface](https://github.com/rvagg/node-levelup#dbbatcharray-options-callback-array-form).
+
 ## License
 
 MIT

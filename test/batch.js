@@ -1,5 +1,5 @@
 
-var levelup = require('levelup')
+var levelup = require('level')
 var tape    = require('tape')
 var rimraf  = require('rimraf')
 

@@ -17,12 +17,12 @@ module.exports = function (db, opts) {
 
   var merge = opts.merge
 
-  var put = db.put, del = db.del
+  var put = db.put, del = db.del, batch = db.batch
 
   function op (key, value, cb) {
     var ks = key.toString()
     if(ks < opts.start || opts.end < ks)
-      return put.call(db, key, value, options, cb) 
+      return put.call(db, key, value, options, cb)
 
     db.get(key, function (err, _value) {
       if(err && err.name != 'NotFoundError') return cb(err)
@@ -82,10 +82,10 @@ module.exports = function (db, opts) {
 
           item.value = value
 
-          if(done --> 0) return //not the last thing yet..
+          if(--done) return //not the last thing yet..
 
           //if this was the last operation...
-          batch.call(ops, options, _cb)
+          batch.call(db, ops, options, _cb)
         })
       })
     })
